@@ -8,13 +8,12 @@ const getAllTasks = async (req, res) => {
         res.send(tasks.map(t => t.toJSON()));
 
     } catch (err) {
-        res.send(err);
+        res.status(400).send(err);
     }
 }
 
 const createNewTask = async (req, res) => {
-    console.log(req.body)
-    if (!req.body.title) return res.send('Error, title needed')
+    if (!req.body.title) return res.status(400).send('Error, title needed')
 
     const task = await Task.create({
         title: req.body.title
@@ -45,6 +44,7 @@ const changeTask = async (req, res) => {
         res.send(task);
 
     } catch (err) {
+        console.log(err);
         res.status(404).send('Invalid id');
     }
 }
@@ -58,6 +58,7 @@ const deleteTask = async (req, res) => {
         await task.destroy();
         res.send("Task deleted.")
     } catch (err) {
+        console.log(err)
         res.status(404).send('Invalid id');
     }
 }

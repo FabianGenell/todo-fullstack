@@ -1,0 +1,38 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  background-color: var(--dark-bg-color);
+
+  --dark-bg-color: #17181f;
+  --light-bg-color: #20212c;
+  --highlight-color: #f27ea5;
+  --highlight-grad-1: #fda4a5;
+  --highlight-grad-2: #ce69e2;
+
+  --purple: #a96bdb;
+  --aqua: #6fc4be;
+  --green: #488465;
+  --orange: #947456;
+  --pink: #e279a3;
+  --blue: #4d81b7;
+  --yellow: #f3c06b;
+  --red: #d43d3d;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}

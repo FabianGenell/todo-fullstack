@@ -9,6 +9,7 @@
 
   --dark-bg-color: #17181f;
   --light-bg-color: #20212c;
+  --very-light-bg-color: #2a2b39;
   --highlight-color: #f27ea5;
   --highlight-grad-1: #fda4a5;
   --highlight-grad-2: #ce69e2;
@@ -34,7 +35,6 @@
 
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
 }
 

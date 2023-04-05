@@ -14,32 +14,90 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.task-list .task-entry:hover {
+    background-color: var(--very-light-bg-color);
+
 }
 
 .task-list .task-entry h4{
     font-weight: 400;
     line-height: 5px;
+    max-width: 100%;
+    overflow: hidden;
+    line-height: normal;
+    text-overflow: ellipsis;
+    white-Space: nowrap;
+    padding-right: 20px;
 }
 
-.task-entry .task-completed-tick {
+.task-entry .button-container {
+    display: flex;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    gap: 10px;
+}
+
+.task-entry .button-container .button {
+    background-color: rgba(256, 256, 256, .1);
+    color: rgba(256, 256, 256, .5);
+    padding: 5px;
+    border-radius: 10px;
+    box-sizing: content-box;
+    opacity: .3;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.task-entry .button-container .button:hover {
+    opacity: 1;
+}
+
+
+.badge{
     --size: 24px;
     width: var(--size);
     height: var(--size);
     border-radius: 9px;
+    flex-shrink: 0;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.task-entry .task-completed-tick:not(.task-completed) {
-
+.task-entry .badge:not(.task-completed) {
     border: 3px solid var(--highlight-color);
 }
 
 
-.task-entry .task-completed-tick.task-completed  {
+.task-entry .badge.task-completed  {
     background-color: var(--highlight-color);
 }
 
-.task-entry .task-completed-tick.task-completed::before  {
-    content: url('/checkmark.svg');
-    
+.create-task .badge {
+    background-color: var(--highlight-color);
+}
+
+.create-task {
+    border: solid 3px var(--light-bg-color);
+    border-radius: 25px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.create-task input {
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    width: 100%;
 }

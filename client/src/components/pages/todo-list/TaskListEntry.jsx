@@ -1,16 +1,28 @@
 import React from "react";
-import { updateTask } from "../../../service/taskService";
-// 
-export default function TaskListEntry({ task, setTask }) {
+import { BsCheck2, BsTrash3Fill, BsPencilFill } from "react-icons/bs"
 
-    function handleClick() {
-        updateTask(task.id, { completed: !task.completed }).then((res) => setTask(res.data))
+
+import { deleteTask, updateTask } from "../../../service/taskService";
+
+// 
+export default function TaskListEntry({ task, TaskState }) {
+
+    function handleComplete() {
+        updateTask(task.id, { completed: !task.completed }).then((res) => TaskState.set(res.data))
+    }
+
+    function handleDelete() {
+        deleteTask(task.id).then(() => TaskState.delete(task))
     }
 
     return <>
         <div className="task-entry">
-            <TaskCompletedTick onClick={handleClick} completed={task.completed} />
+            <TaskCompletedTick onClick={handleComplete} completed={task.completed} />
             <h4>{task.title}</h4>
+            <div className="button-container">
+                <BsPencilFill className="button" />
+                <BsTrash3Fill className="button" onClick={handleDelete} />
+            </div>
         </div>
     </>;
 
@@ -18,5 +30,7 @@ export default function TaskListEntry({ task, setTask }) {
 
 
 function TaskCompletedTick({ completed, ...props }) {
-    return <div {...props} className={`task-completed-tick ${completed && "task-completed"}`}></div >
+    return <div {...props} className={`task-completed-tick badge ${completed && "task-completed"}`}>
+        {completed && <BsCheck2 color="var(--light-bg-color)" size="30px" />}
+    </div >
 }

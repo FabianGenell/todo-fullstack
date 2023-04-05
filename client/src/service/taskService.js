@@ -14,7 +14,6 @@ export async function getTask(id) {
 
 export async function deleteTask(id) {
     const response = await api.delete(`/task/${id}`);
-
     return response;
 }
 
@@ -24,8 +23,8 @@ export async function createTask(task) {
     return response;
 }
 
-export async function updateTask(task) {
-    const response = await api.patch(`/task`, task);
+export async function updateTask(id, task) {
+    const response = await api.patch(`/task/${id}`, task);
 
     return response;
 }

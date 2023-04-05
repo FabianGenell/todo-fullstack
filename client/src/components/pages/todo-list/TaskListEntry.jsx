@@ -1,11 +1,15 @@
 import React from "react";
+import { updateTask } from "../../../service/taskService";
+// 
+export default function TaskListEntry({ task, setTask }) {
 
-
-export default function TaskListEntry({ task }) {
+    function handleClick() {
+        updateTask(task.id, { completed: !task.completed }).then((res) => setTask(res.data))
+    }
 
     return <>
         <div className="task-entry">
-            <TaskCompletedTick completed={task.completed} />
+            <TaskCompletedTick onClick={handleClick} completed={task.completed} />
             <h4>{task.title}</h4>
         </div>
     </>;
@@ -13,6 +17,6 @@ export default function TaskListEntry({ task }) {
 }
 
 
-function TaskCompletedTick({ completed }) {
-    return <div className={`task-completed-tick ${completed && "task-completed"}`}></div >
+function TaskCompletedTick({ completed, ...props }) {
+    return <div {...props} className={`task-completed-tick ${completed && "task-completed"}`}></div >
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"
 
+import './TaskList.css';
 import TaskListEntry from "./TaskListEntry";
 import { getTasks } from "../../../service/taskService";
 

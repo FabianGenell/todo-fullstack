@@ -10,13 +10,13 @@
 .task-list .task-entry {
     background-color: var(--light-bg-color);
     border-radius: 25px;
-    padding: 15px;
+    padding: 8px 15px;
     display: flex;
     align-items: center;
     gap: 15px;
     position: relative;
     cursor: pointer;
-    transition: all .3s;
+    transition: background-color .3s;
 }
 
 .task-list .task-entry:hover {
@@ -51,7 +51,7 @@
     box-sizing: content-box;
     opacity: .3;
     cursor: pointer;
-    transition: all .3s;
+    transition: opacity .3s;
 }
 
 .task-entry .button-container .button:hover {
@@ -76,13 +76,12 @@
 }
 
 
-.task-entry .badge.task-completed  {
+.task-entry .badge.task-completed, 
+.create-task .badge  {
     background-color: var(--highlight-color);
 }
 
-.create-task .badge {
-    background-color: var(--highlight-color);
-}
+
 
 .create-task {
     border: solid 3px var(--light-bg-color);

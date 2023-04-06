@@ -1,11 +1,11 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family:  Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   box-sizing: border-box;
 
   color-scheme: light dark;
   background-color: var(--dark-bg-color);
+
 
   --dark-bg-color: #17181f;
   --light-bg-color: #20212c;
@@ -13,7 +13,7 @@
   --highlight-color: #f27ea5;
   --highlight-grad-1: #fda4a5;
   --highlight-grad-2: #ce69e2;
-
+  
   --purple: #a96bdb;
   --aqua: #6fc4be;
   --green: #488465;
@@ -36,6 +36,10 @@
 body {
   margin: 0;
   min-height: 100vh;
+}
+
+input, textarea{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: light) {

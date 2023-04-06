@@ -4,7 +4,7 @@ const getAllTasks = async (req, res) => {
     //!What is the proper way to handle errors here? Should something be sent to the client?
     try {
         const tasks = await Task.findAll({ where: req.query });
-        res.send(tasks.map(t => t.toJSON()));
+        res.send(tasks/* .map(t => t.toJSON()) */);
 
     } catch (err) {
         console.log(err);
@@ -16,8 +16,10 @@ const getTask = async (req, res) => {
     try {
         const task = await Task.findByPk(req.params.id);
         res.send(task);
-    } catch (err) {
 
+    } catch (err) {
+        console.log(err);
+        res.status(404).send('Not Found');
     }
 }
 

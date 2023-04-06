@@ -4,9 +4,11 @@ import './TaskList.css';
 import TaskListEntry from "./TaskListEntry";
 import { getTasks } from "../../../service/taskService";
 import CreateTask from "./CreateTask";
+import EditTask from "./EditTask";
 
 export default function TaskListContainer() {
     const [tasks, setTasks] = useState();
+    const [editingTask, setEditingTask] = useState();
 
     useEffect(() => {
         getTasks().then((response) => {
@@ -29,16 +31,13 @@ export default function TaskListContainer() {
         }
     }
 
-    //! Is this how I'm supposed to use seperation of interests? Because I can't really reuse this as I have it right now.
-    return <TaskList TaskState={TaskState} tasks={tasks} />;
-
-}
-
-function TaskList({ tasks, TaskState }) {
-    return <div className="task-list">
-        <CreateTask TaskState={TaskState} />
-        {tasks && tasks.map(task =>
-            <TaskListEntry TaskState={TaskState} task={task} key={task.id} />
-        )}
-    </div>;
+    //!seperation of interests?
+    return <>
+        {editingTask && <EditTask editingTaskState={[editingTask, setEditingTask]} TaskState={TaskState} />}
+        <div className="task-list">
+            <CreateTask TaskState={TaskState} />
+            {tasks && tasks.map(task =>
+                <TaskListEntry TaskState={TaskState} task={task} key={task.id} onClick={() => setEditingTask(task)} />
+            )}
+        </div></>;
 }

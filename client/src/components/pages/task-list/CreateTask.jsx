@@ -32,6 +32,7 @@ export default function CreateTask({ TaskState }) {
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
                 maxLength="1023"
+                autoComplete="off"
             />
         </label>
     </form>;

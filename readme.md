@@ -16,11 +16,12 @@ This is a simple ToDo app built with React on the frontend and Node.js with Expr
 1. Clone the repository: `git clone <repository-url>`
 2. Install dependencies: `npm install`
 3. Set up a PostgreSQL database and create a `.env` file with the following environment variables:
-   `   USER=
+   ```USER=
    PASSWORD=
    DB_NAME=
    HOST=
-   PORT=`
+   PORT=
+   ```
 4. Start the server: `npm run start:dev`
 5. Start the frontend: `npm start`
 

@@ -1,38 +1,53 @@
 {
-  "hash": "c0f4b467",
-  "browserHash": "94416b86",
+  "hash": "2b6e7855",
+  "browserHash": "8026b9d6",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "51951027",
+      "fileHash": "709fd99a",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "ea51176e",
+      "fileHash": "efa82093",
       "needsInterop": true
     },
-    "dotenv": {
-      "src": "../../node_modules/dotenv/lib/main.js",
-      "file": "dotenv.js",
-      "fileHash": "fc66613d",
-      "needsInterop": true
+    "react-icons/bs": {
+      "src": "../../node_modules/react-icons/bs/index.esm.js",
+      "file": "react-icons_bs.js",
+      "fileHash": "62990a45",
+      "needsInterop": false
+    },
+    "react-icons/ai": {
+      "src": "../../node_modules/react-icons/ai/index.esm.js",
+      "file": "react-icons_ai.js",
+      "fileHash": "9267e5ee",
+      "needsInterop": false
+    },
+    "react-textarea-autosize": {
+      "src": "../../node_modules/react-textarea-autosize/dist/react-textarea-autosize.browser.esm.js",
+      "file": "react-textarea-autosize.js",
+      "fileHash": "26b6f7d1",
+      "needsInterop": false
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "ae54dc46",
+      "fileHash": "fc0d44ee",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-BHRT4LQR": {
-      "file": "chunk-BHRT4LQR.js"
+    "chunk-G2Y2LHZ5": {
+      "file": "chunk-G2Y2LHZ5.js"
     },
-    "chunk-RSJERJUL": {
-      "file": "chunk-RSJERJUL.js"
+    "chunk-ST3U5LCA": {
+      "file": "chunk-ST3U5LCA.js"
+    },
+    "chunk-DFKQJ226": {
+      "file": "chunk-DFKQJ226.js"
     }
   }
 }

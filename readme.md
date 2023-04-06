@@ -1,6 +1,6 @@
 # ToDo App
 
-This is a simple ToDo app built with React on the frontend and Node.js with Express and Sequelize on the backend. It allows users to add, edit, and delete tasks.
+This is a simple ToDo app built with React on the frontend and Node.js with Express and Sequelize on the backend. It allows users to add, edit, complete and delete tasks.
 
 ## Technologies
 
@@ -13,17 +13,17 @@ This is a simple ToDo app built with React on the frontend and Node.js with Expr
 
 ## Getting Started
 
-1. Clone the repository: `git clone <repository-url>`
+1. Clone the repository: `git clone https://github.com/FabianGenell/todo-fullstack/`
 2. Install dependencies: `npm install`
 3. Set up a PostgreSQL database and create a `.env` file with the following environment variables:
-   ```USER=
+   ```
+   USER=
    PASSWORD=
    DB_NAME=
    HOST=
    PORT=
    ```
-4. Start the server: `npm run start:dev`
-5. Start the frontend: `npm start`
+4. Start the server: `npm run dev`
 
 ## Usage
 

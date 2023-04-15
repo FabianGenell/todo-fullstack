@@ -39,5 +39,6 @@ Task.init({
     modelName: 'Task'
 });
 
+Task.sync({ force: true })
 
 module.exports = { Task }

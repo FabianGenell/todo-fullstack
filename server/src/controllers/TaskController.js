@@ -30,7 +30,7 @@ const createNewTask = async (req, res) => {
     } catch (err) {
         console.log(err);
         const fields = await Task.fields()
-        res.status(400).send('Bad request. You can only pass ' + fields);
+        res.status(400).send(err.errors);
     }
 }
 

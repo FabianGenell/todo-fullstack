@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(authMiddleware);
 
 //Routes
-taskRoutes.routes(app);
+app.use(taskRoutes)
 app.use(authRoutes)
 
 //Starting the server

@@ -2,13 +2,13 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../models/User')
 
-
+//util function
 function createToken(id) {
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30m" });
 }
 
+//controllers
 const authLogin = async (req, res) => {
-    console.log(req.local)
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
 
@@ -40,21 +40,37 @@ const createUser = async (req, res) => {
     }
 }
 
-const getUser = (req, res) => {
+const getUser = async (req, res) => {
+    if (!req.local.id) return res.status(404).send('No user specified')
+    const { email, id } = await User.findOne({ where: { id: req.local.id } });
+
+    res.json({ email, id });
 
 }
 
-//temp admin
+//?temp admin
 const getAllUsers = async (req, res) => {
     const users = await User.findAll();
     res.json(users);
 }
 
-const deleteUser = (req, res) => {
+const deleteUser = async (req, res) => {
+    if (!req.local.id) return res.status(404).send('No user specified')
 
+    const user = await User.findOne({ where: { id: req.local.id } });
+    user.destroy();
+    res.send('User deleted')
 }
 
-const changeUser = (req, res) => {
+const changeUser = async (req, res) => {
+    if (!req.local.id) return res.status(404).send('No user specified')
+
+    const { email, password } = req.body;
+    const update = { email, password };
+    const user = await User.findOne({ where: { id: req.local.id } });
+    await user.update(update);
+
+    res.send({ updated: update });
 
 }
 

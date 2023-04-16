@@ -1,4 +1,6 @@
-const { Task } = require('../models/Task');
+const Task = require('../models/Task');
+
+const controllerTwo = require('./tasks')
 
 const getAllTasks = async (req, res) => {
     //!What is the proper way to handle errors here? Should something be sent to the client?
@@ -25,11 +27,10 @@ const getTask = async (req, res) => {
 
 const createNewTask = async (req, res) => {
     try {
-        const task = await Task.create({ ...req.body });
+        const UserID = req.local.id;
+        const task = await Task.create({ ...req.body, UserID });
         res.send(task.toJSON());
     } catch (err) {
-        console.log(err);
-        const fields = await Task.fields()
         res.status(400).send(err.errors);
     }
 }

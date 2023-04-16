@@ -49,11 +49,6 @@ User.init({
     }
 });
 
-// User.addHook('afterValidate', async function (user, options) {
-
-
-// })
-
-User.sync({ force: true })
+// User.sync({ force: true })
 
 module.exports = User 

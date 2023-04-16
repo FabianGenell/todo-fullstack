@@ -2,6 +2,11 @@ const { Router } = require('express');
 const AuthController = require('../controllers/AuthController')
 const routes = Router();
 
+routes.use((req, res, next) => {
+    console.log('TESTTEST')
+    next();
+})
+
 routes.post('/login', AuthController.authLogin)
 routes.post('/user', AuthController.createUser)
 routes.patch('/user', AuthController.changeUser)

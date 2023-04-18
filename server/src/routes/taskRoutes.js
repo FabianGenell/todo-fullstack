@@ -3,12 +3,12 @@ const routes = Router();
 const TaskController = require('../controllers/tasks')
 
 //!FOr some reason it applies to ALL (including authRoutes.js) routes?!?!?
-// routes.use((req, res, next) => {
-//     if (!req.local) {
-//         return res.status(401).send('No user found');
-//     }
-//     next();
-// })
+routes.use(['/task', '/tasks'], (req, res, next) => {
+    if (!req.local) {
+        return res.status(401).send('No auth token found');
+    }
+    next();
+})
 
 
 routes.get('/tasks', TaskController.getTasks);

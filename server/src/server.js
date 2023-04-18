@@ -12,7 +12,7 @@ const app = express();
 const port = 3000
 
 //middleware
-app.use(morgan('tiny'));
+app.use(morgan(':method :url :status :res[content-length] - :date[clf] (:response-time ms)'));
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());

@@ -1,0 +1,61 @@
+.auth {
+    margin-top: 60px;
+    display: flex;
+    flex-flow:column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.auth form {
+    display: flex;
+    flex-flow: column;
+    max-width: 500px;
+    width: 80%;
+}
+
+.auth form label {
+    margin: 10px 0 5px 0;
+    font-size: 1rem;
+}
+
+.auth form input {
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.auth form input:not([type="submit"]) {
+    border: 5px solid var(--very-light-bg-color);
+    background: none;
+}
+.auth form input:not([type="submit"]):focus {
+    border: 5px solid white;
+}
+
+.auth form input[type="submit"] {
+    border: none;
+    margin-top: 20px;
+    background-color: var(--highlight-color);
+    cursor: pointer;
+}
+
+
+.error-message {
+    color: var(--red);
+    padding: 3px;
+}
+
+.signup-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    margin: 10px 0;
+    align-self: flex-start;
+}
+
+.signup-link span {
+    color: var(--blue);
+}

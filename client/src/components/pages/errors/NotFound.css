@@ -1,0 +1,45 @@
+:root {
+    font-size: 16px;
+}
+
+.page-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-image: url('/404-background.svg');
+    background-position: center center; /* First value is from left and second is from top. You can use use number as well*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: rgba(0, 0, 0, 0.373) 1px 0 10px;
+}
+
+.content h1 {
+    font-size: 8rem;
+    margin: 0;
+}
+
+.content h2 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.content a {
+    font-size: 2.3rem;
+    margin-top: 200px;
+}
+
+
+@media (max-width: 500px) {
+    :root {
+        font-size: 8px;
+    }
+}

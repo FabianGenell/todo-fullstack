@@ -25,7 +25,7 @@ export async function updateUser(user) {
     return response;
 }
 
-export async function deleteUser(user) {
+export async function deleteUser() {
     const response = await api.delete(`/user`);
 
     return response;

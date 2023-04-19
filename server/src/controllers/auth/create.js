@@ -14,7 +14,10 @@ module.exports = async (req, res, User) => {
         res.status(201).send('User created');
 
     } catch (err) {
-        console.log(err);
-        res.status(400).send(err.errors);
+        const responseErrors = {};
+        for (e of err.errors) {
+            responseErrors[e.path] = e.message;
+        }
+        res.status(400).send(responseErrors);
     }
 }

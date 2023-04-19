@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
-import { loginUser } from "../../../service/authService";
+import { createUser } from "../../../service/authService";
 import './auth.css'
 
-export default function Login() {
+export default function Signup() {
 
     const [user, setUser] = useState({});
     const [errorMessage, setErrorMessage] = useState({});
@@ -20,9 +20,9 @@ export default function Login() {
 
     function handeSubmit(e) {
         e.preventDefault();
-        loginUser(user)
-            .then(() => navigate('/'))
-            .catch((err) => setErrorMessage(err.response.data.error))
+        createUser(user)
+            // .then(() => navigate('/'))
+            .catch((err) => { try { setErrorMessage(err.response.data) } catch { console.log(err) } })
     }
 
     function handleLinkClick(e) {
@@ -31,7 +31,7 @@ export default function Login() {
     }
 
     return <div className="auth">
-        <h1>Log In</h1>
+        <h1>Sign Up</h1>
         <form onSubmit={handeSubmit}>
 
             <label htmlFor="email">Email</label>
@@ -42,9 +42,9 @@ export default function Login() {
             <input type="password" name="password" id="password" onChange={handleChange} />
             {errorMessage.password && <div className="error-message" id="password-error-message">* {errorMessage.password}</div>}
 
-            <input type="submit" value="Login" />
+            <input type="submit" value="Create Account" />
 
-            <a className="page-link" href="/signup" onClick={handleLinkClick}>Don't have an account? <span>Sign Up</span></a>
+            <a className="page-link" href="/signup" onClick={handleLinkClick}>Already have an account? <span>Log In</span></a>
         </form>
     </div>
 }

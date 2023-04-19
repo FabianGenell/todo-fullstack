@@ -6,6 +6,7 @@ import './index.css'
 import TaskListContainer from './components/pages/task-list/TaskList'
 import { getTasks } from './service/taskService';
 import Login from './components/pages/auth/Login';
+import Signup from './components/pages/auth/Signup';
 import NotFound from './components/pages/errors/NotFound';
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />
+      },
+      {
+        path: "/signup",
+        element: <Signup />
       }
     ]
   },

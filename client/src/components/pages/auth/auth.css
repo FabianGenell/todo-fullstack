@@ -48,7 +48,7 @@
     padding: 3px;
 }
 
-.signup-link {
+.page-link {
     text-decoration: none;
     color: white;
     font-size: 1rem;
@@ -56,6 +56,6 @@
     align-self: flex-start;
 }
 
-.signup-link span {
+.page-link span {
     color: var(--blue);
 }

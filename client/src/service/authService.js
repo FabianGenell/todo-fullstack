@@ -14,7 +14,7 @@ export async function logoutUser() {
 }
 
 export async function createUser(user) {
-    const response = await api.post(`/user`, user);
+    const response = await api.post(`/user`, user).then(response => console.log(response.headers));
 
     return response;
 }

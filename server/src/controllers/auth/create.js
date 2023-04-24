@@ -9,7 +9,7 @@ module.exports = async (req, res, User) => {
         const user = await User.create({ email, password });
 
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "5m" });
-        res.cookie('auth', token);
+        res.cookie('auth', token, { httpOnly: true, sameSite: 'strict' });
 
         res.status(201).send('User created');
 

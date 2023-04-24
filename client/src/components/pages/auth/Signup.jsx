@@ -27,7 +27,7 @@ export default function Signup() {
 
     function handleLinkClick(e) {
         e.preventDefault();
-        navigate('/signup');
+        navigate('/login');
     }
 
     return <div className="auth">
@@ -44,7 +44,7 @@ export default function Signup() {
 
             <input type="submit" value="Create Account" />
 
-            <a className="page-link" href="/signup" onClick={handleLinkClick}>Already have an account? <span>Log In</span></a>
+            <a className="page-link" href="/login" onClick={handleLinkClick}>Already have an account? <span>Log In</span></a>
         </form>
     </div>
 }

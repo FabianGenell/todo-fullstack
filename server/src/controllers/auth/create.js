@@ -15,9 +15,10 @@ module.exports = async (req, res, User) => {
 
     } catch (err) {
         const responseErrors = {};
-        for (e of err.errors) {
-            responseErrors[e.path] = e.message;
-        }
-        res.status(400).send(responseErrors);
+        // for (e of err.errors) {
+        //     responseErrors[e.path] = e.message;
+        // }
+        console.log(err)
+        res.status(400).send(err);
     }
 }

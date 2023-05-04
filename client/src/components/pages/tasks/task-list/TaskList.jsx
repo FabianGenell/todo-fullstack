@@ -8,6 +8,8 @@ import EditTask from "./EditTask";
 
 export default function TaskListContainer() {
     const [tasks, setTasks] = useState();
+    const [completedTasks, setCompletedTasks] = useState();
+    const [dueTasks, setDueTasks] = useState();
     const [editingTask, setEditingTask] = useState();
 
     useEffect(() => {
@@ -15,6 +17,15 @@ export default function TaskListContainer() {
             setTasks(response.data);
         });
     }, [])
+
+    useEffect(() => {
+        const completed = [];
+        const due = [];
+        tasks && tasks.forEach(task => { task.completed ? completed.push(task) : due.push(task) });
+        setCompletedTasks(completed);
+        setDueTasks(due);
+        console.log({ completed, due })
+    }, [tasks])
 
     const TaskState = {
         set: (task) => {
@@ -36,9 +47,18 @@ export default function TaskListContainer() {
         {editingTask && <EditTask editingTaskState={[editingTask, setEditingTask]} TaskState={TaskState} />}
         <div className="task-list">
             <CreateTask TaskState={TaskState} />
-            {tasks && tasks.map(task =>
-                <TaskListEntry TaskState={TaskState} task={task} key={task.id} onClick={() => setEditingTask(task)} />
-            )}
+            {tasks && <>
+                <span>Tasks - {dueTasks.length}</span>
+                {(dueTasks.map(task =>
+                    <TaskListEntry TaskState={TaskState} task={task} key={task.id} setEditingTask={setEditingTask} />
+                ))}
+
+                <span>Completed - {completedTasks.length}</span>
+                {(completedTasks.map(task =>
+                    <TaskListEntry TaskState={TaskState} task={task} key={task.id} setEditingTask={setEditingTask} />
+                ))}
+            </>}
+
         </div>
 
     </>;

@@ -5,7 +5,7 @@ import { BsCheck2, BsTrash3Fill, BsPencilFill } from "react-icons/bs"
 import { deleteTask, updateTask } from "../../../../service/taskService";
 
 
-export default function TaskListEntry({ task, TaskState, ...props }) {
+export default function TaskListEntry({ task, TaskState, setEditingTask, ...props }) {
 
     function handleComplete(e) {
         e.stopPropagation()
@@ -17,12 +17,17 @@ export default function TaskListEntry({ task, TaskState, ...props }) {
         deleteTask(task.id).then(() => TaskState.delete(task))
     }
 
+    function handleEdit(e) {
+        e.stopPropagation();
+        setEditingTask(task)
+    }
+
     return <>
-        <div className={["task-entry " + (task.completed && "completed")]} {...props}>
+        <div onClick={handleComplete} className={["task-entry " + (task.completed && "completed")]} {...props}>
             <TaskCompletedTick onClick={handleComplete} completed={task.completed} />
             <h4 >{task.title}</h4>
             <div className="button-container">
-                <BsPencilFill className="button" />
+                <BsPencilFill className="button" onClick={handleEdit} />
                 <BsTrash3Fill className="button" onClick={handleDelete} />
             </div>
         </div>

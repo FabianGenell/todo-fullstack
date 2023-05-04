@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-bottom: 100px;
 }
 
 .task-list .task-entry {
@@ -34,6 +35,15 @@
     text-overflow: ellipsis;
     white-Space: nowrap;
     padding-right: 20px;
+}
+
+.task-list .completed {
+    opacity: .7;
+}
+
+.task-list .completed h4{
+    text-decoration: line-through;
+    opacity: .7;
 }
 
 .task-entry .button-container {

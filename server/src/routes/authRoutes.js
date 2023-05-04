@@ -3,7 +3,6 @@ const AuthController = require('../controllers/auth')
 const routes = Router();
 
 routes.post('/login', AuthController.login)
-routes.post('/logout', AuthController.logout)
 routes.post('/user', AuthController.create)
 routes.patch('/user', AuthController.update)
 routes.delete('/user', AuthController.delete)

@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, Navigate, RouterProvider, } from "react-router-dom";
 
 import './index.css'
-import TaskListContainer from './components/pages/task-list/TaskList'
+import TaskPage from './components/pages/tasks/TaskPage'
 import { getTasks } from './service/taskService';
 import Login from './components/pages/auth/Login';
 import Signup from './components/pages/auth/Signup';
 import NotFound from './components/pages/errors/NotFound';
+
+//https://dribbble.com/shots/15185058-Collection-Tasks
+//https://dribbble.com/shots/16819021-Task-management-app-My-tasks
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <TaskListContainer />,
+        element: <TaskPage />,
         loader: getTasks,
         errorElement: <Navigate to="/login" />
       },
@@ -30,8 +33,6 @@ const router = createBrowserRouter([
       }
     ]
   },
-
-
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

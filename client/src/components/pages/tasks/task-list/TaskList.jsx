@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import './TaskList.css';
 import TaskListEntry from "./TaskListEntry";
-import { getTasks } from "../../../service/taskService";
+import { getTasks } from "../../../../service/taskService";
 import CreateTask from "./CreateTask";
 import EditTask from "./EditTask";
 

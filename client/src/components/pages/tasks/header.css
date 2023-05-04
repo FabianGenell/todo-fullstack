@@ -1,0 +1,26 @@
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 16px;
+    margin-bottom: 15px;
+    color: rgb(167, 167, 167);
+    background-color: var(--light-bg-color);
+}
+
+.logout-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.icon {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .2s;
+}
+
+.icon:hover {
+    opacity: 1;
+}

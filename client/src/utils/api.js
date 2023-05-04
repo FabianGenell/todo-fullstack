@@ -8,7 +8,7 @@ api.interceptors.request.use((config) => {
     return config;
 })
 
-api.interceptors.response.use((response) => { }, (error) => {
+api.interceptors.response.use((response) => { return response; }, (error) => {
     if (error.response.data.resetAuthToken) window.sessionStorage.removeItem("authToken")
     return;
 })

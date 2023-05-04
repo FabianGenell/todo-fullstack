@@ -20,9 +20,10 @@ export default function Login() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        console.log({ login: user })
         loginUser(user)
             .then(() => navigate('/'))
-            .catch((err) => /* setErrorMessage(err.response.data.error) */ console.log(err))
+            .catch((err) => /* setErrorMessage(err.response.data.error) */ console.log({ handleErr: err }))
     }
 
     function handleLinkClick(e) {

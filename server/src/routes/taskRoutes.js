@@ -4,7 +4,7 @@ const TaskController = require('../controllers/tasks')
 
 routes.use(['/task', '/tasks'], (req, res, next) => {
     if (!req.local) {
-        return res.status(401).send('No auth token found');
+        return res.status(401).send('User not logged in');
     }
     next();
 })

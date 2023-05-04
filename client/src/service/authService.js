@@ -2,9 +2,10 @@ import api from '../utils/api'
 
 
 export async function loginUser(user) {
-    const response = await api.post(`/login`, user);
-    console.log({ response })
-    if (response.data.authToken !== undefined) window.sessionStorage.setItem("authToken", response.data.authToken);
+    const response = await api.post(`/login`, user)
+
+    const authToken = response.data.authToken;
+    if (authToken) window.sessionStorage.setItem("authToken", authToken);
 
     return response;
 }
@@ -20,7 +21,8 @@ export async function logoutUser() {
 export async function createUser(user) {
     const response = await api.post(`/user`, user);
 
-    if (response.data.authToken !== undefined) window.sessionStorage.setItem("authToken", response.data.authToken);
+    const authToken = response.data.authToken;
+    if (authToken) window.sessionStorage.setItem("authToken", authToken);
 
     return response;
 }

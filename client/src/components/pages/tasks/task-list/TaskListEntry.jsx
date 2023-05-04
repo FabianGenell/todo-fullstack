@@ -2,7 +2,7 @@ import React from "react";
 import { BsCheck2, BsTrash3Fill, BsPencilFill } from "react-icons/bs"
 
 
-import { deleteTask, updateTask } from "../../../service/taskService";
+import { deleteTask, updateTask } from "../../../../service/taskService";
 
 // 
 export default function TaskListEntry({ task, TaskState, ...props }) {

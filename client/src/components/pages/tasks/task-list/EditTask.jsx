@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import TextareaAutosize from 'react-textarea-autosize';
-import { updateTask } from "../../../service/taskService";
+import { updateTask } from "../../../../service/taskService";
 
 import "./EditTask.css";
 

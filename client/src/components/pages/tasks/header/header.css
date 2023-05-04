@@ -12,24 +12,25 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    cursor: pointer;
 }
 
 .logout-container span{
     opacity: .8;
     transition: opacity .2s;
+    cursor: pointer;
+
 }
 
 .logout-container span:hover{
     opacity: 1;
 
 }
-.icon {
+.task-header .icon {
     cursor: pointer;
     opacity: .8;
     transition: opacity .2s;
 }
 
-.icon:hover {
+.task-header .icon:hover {
     opacity: 1;
 }

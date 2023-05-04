@@ -13,7 +13,8 @@ module.exports = function validateJWT(req, res, next) {
         const user = jwt.verify(token, process.env.JWT_SECRET)
         req.local = { ...user };
     } catch (err) {
-        res.resetAuthToken = true;
+        console.log(err)
+        return res.status(401).send({ resetAuthToken: true });
 
     }
 

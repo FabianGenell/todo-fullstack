@@ -4,7 +4,7 @@ import { BsCheck2, BsTrash3Fill, BsPencilFill } from "react-icons/bs"
 
 import { deleteTask, updateTask } from "../../../../service/taskService";
 
-// 
+
 export default function TaskListEntry({ task, TaskState, ...props }) {
 
     function handleComplete(e) {
@@ -12,12 +12,13 @@ export default function TaskListEntry({ task, TaskState, ...props }) {
         updateTask(task.id, { completed: !task.completed }).then((res) => TaskState.set(res.data))
     }
 
-    function handleDelete() {
+    function handleDelete(e) {
+        e.stopPropagation()
         deleteTask(task.id).then(() => TaskState.delete(task))
     }
 
     return <>
-        <div className="task-entry" {...props}>
+        <div className={["task-entry " + (task.completed && "completed")]} {...props}>
             <TaskCompletedTick onClick={handleComplete} completed={task.completed} />
             <h4 >{task.title}</h4>
             <div className="button-container">

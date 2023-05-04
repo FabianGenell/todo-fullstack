@@ -4,7 +4,7 @@
     align-items: center;
     padding: 11px 16px;
     margin-bottom: 15px;
-    color: rgb(167, 167, 167);
+    color: rgb(206, 206, 206);
     background-color: var(--light-bg-color);
 }
 
@@ -15,6 +15,15 @@
     cursor: pointer;
 }
 
+.logout-container span{
+    opacity: .8;
+    transition: opacity .2s;
+}
+
+.logout-container span:hover{
+    opacity: 1;
+
+}
 .icon {
     cursor: pointer;
     opacity: .8;

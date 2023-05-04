@@ -39,5 +39,7 @@ export default function TaskListContainer() {
             {tasks && tasks.map(task =>
                 <TaskListEntry TaskState={TaskState} task={task} key={task.id} onClick={() => setEditingTask(task)} />
             )}
-        </div></>;
+        </div>
+
+    </>;
 }

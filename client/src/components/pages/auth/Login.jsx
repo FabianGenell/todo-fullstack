@@ -18,11 +18,11 @@ export default function Login() {
         console.log(newUser)
     }
 
-    function handeSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
         loginUser(user)
             .then(() => navigate('/'))
-            .catch((err) => setErrorMessage(err.response.data.error))
+            .catch((err) => /* setErrorMessage(err.response.data.error) */ console.log(err))
     }
 
     function handleLinkClick(e) {
@@ -32,7 +32,7 @@ export default function Login() {
 
     return <div className="auth">
         <h1>Log In</h1>
-        <form onSubmit={handeSubmit}>
+        <form onSubmit={handleSubmit}>
 
             <label htmlFor="email">Email</label>
             <input type="text" name="email" id="email" onChange={handleChange} />

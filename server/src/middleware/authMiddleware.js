@@ -3,16 +3,18 @@ const jwt = require('jsonwebtoken')
 
 module.exports = function validateJWT(req, res, next) {
 
-    console.log('cookies: ', req.cookies)
-    const token = req.cookies.auth;
+    // console.log({ auth: req.headers.authorization });
+    if (req.headers.authorization == undefined) return next();
+    const token = req.headers.authorization.split(' ')[1];
+    console.log({ token })
     if (!token) return next();
 
     try {
         const user = jwt.verify(token, process.env.JWT_SECRET)
-
         req.local = { ...user };
     } catch (err) {
-        res.clearCookie('auth');
+        res.resetAuthToken = true;
+
     }
 
     next();

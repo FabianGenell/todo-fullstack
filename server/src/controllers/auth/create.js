@@ -8,10 +8,10 @@ module.exports = async (req, res, User) => {
         const { email, password } = req.body;
         const user = await User.create({ email, password });
 
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "5m" });
-        res.cookie('auth', token, { httpOnly: true, sameSite: 'strict' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "15m" });
+        // res.cookie('auth', token, { httpOnly: true, sameSite: 'strict' });
 
-        res.status(201).send('User created');
+        res.status(201).send({ message: 'User created', authToken: token });
 
     } catch (err) {
         const responseErrors = {};

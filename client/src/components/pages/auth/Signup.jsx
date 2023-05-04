@@ -21,8 +21,8 @@ export default function Signup() {
     function handeSubmit(e) {
         e.preventDefault();
         createUser(user)
-            // .then(() => navigate('/'))
-            .catch((err) => { try { setErrorMessage(err.response.data) } catch { console.log(err) } })
+            .then(() => navigate('/'))
+            .catch((err) => { try { setErrorMessage(err.response.data) } catch { console.log(err); navigate('/login') } })
     }
 
     function handleLinkClick(e) {

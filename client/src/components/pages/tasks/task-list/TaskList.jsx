@@ -42,18 +42,17 @@ export default function TaskListContainer() {
         }
     }
 
-    //!seperation of interests?
     return <>
         {editingTask && <EditTask editingTaskState={[editingTask, setEditingTask]} TaskState={TaskState} />}
         <div className="task-list">
             <CreateTask TaskState={TaskState} />
             {tasks && <>
-                <span>Tasks - {dueTasks.length}</span>
+                {dueTasks.length > 0 && <span>Tasks - {dueTasks.length}</span>}
                 {(dueTasks.map(task =>
                     <TaskListEntry TaskState={TaskState} task={task} key={task.id} setEditingTask={setEditingTask} />
                 ))}
 
-                <span>Completed - {completedTasks.length}</span>
+                {completedTasks.length > 0 && <span>Completed - {completedTasks.length}</span>}
                 {(completedTasks.map(task =>
                     <TaskListEntry TaskState={TaskState} task={task} key={task.id} setEditingTask={setEditingTask} />
                 ))}

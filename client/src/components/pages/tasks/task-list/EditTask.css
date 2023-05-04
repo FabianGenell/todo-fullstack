@@ -19,6 +19,8 @@
     background-color: var(--dark-bg-color);
     padding: 30px;
     border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
 }
 
 .edit-task form {
@@ -37,9 +39,28 @@
     outline: none;
 }
 
+.edit-task .title {
+    font-size: 1.8rem;
+}
+
 .edit-task input[type=text]{
     font-size: 24px;
 }
+
+.edit-task input[type=submit]{
+    border: none;
+    margin-top: 20px;
+    background-color: var(--highlight-color);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 15px;
+    padding: 6px;
+    font-size: 18px;
+    line-height: 29px;
+    width: 100px;
+    align-self: flex-end;
+}
+
 
 .edit-task textarea {
     resize: none;

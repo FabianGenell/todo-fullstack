@@ -1,6 +1,6 @@
 import React from "react";
-import { BsCheck2, BsTrash3Fill, BsPencilFill } from "react-icons/bs"
-
+import { BsTrash3Fill, BsPencilFill } from "react-icons/bs"
+import TaskCompletedTick from "./TaskCompletedTick";
 
 import { deleteTask, updateTask } from "../../../../service/taskService";
 
@@ -35,9 +35,3 @@ export default function TaskListEntry({ task, TaskState, setEditingTask, ...prop
 
 }
 
-
-function TaskCompletedTick({ completed, ...props }) {
-    return <div {...props} className={`task-completed-tick badge ${completed && "task-completed"}`}>
-        {completed && <BsCheck2 color="var(--light-bg-color)" size="30px" />}
-    </div >
-}

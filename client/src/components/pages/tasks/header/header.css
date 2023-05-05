@@ -1,0 +1,36 @@
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 16px;
+    margin-bottom: 15px;
+    color: rgb(206, 206, 206);
+    background-color: var(--light-bg-color);
+}
+
+.logout-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout-container span{
+    opacity: .8;
+    transition: opacity .2s;
+    cursor: pointer;
+
+}
+
+.logout-container span:hover{
+    opacity: 1;
+
+}
+.task-header .icon {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .2s;
+}
+
+.task-header .icon:hover {
+    opacity: 1;
+}

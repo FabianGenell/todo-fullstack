@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require('sequelize')
 const { sequelize } = require('../utils/database');
+const User = require('./User')
 
 class Task extends Model {
     static async fields({ showAll = false } = {}) {
@@ -39,5 +40,13 @@ Task.init({
     modelName: 'Task'
 });
 
+Task.belongsTo(User, {
+    foreignKey: { allowNull: false }
+})
+User.hasMany(Task)
 
-module.exports = { Task }
+
+// User.sync({ force: true })
+// Task.sync({ force: true })
+
+module.exports = Task;

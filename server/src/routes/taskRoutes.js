@@ -1,16 +1,25 @@
-const TaskController = require('../controllers/TaskController')
+const { Router } = require('express');
+const routes = Router();
+const TaskController = require('../controllers/tasks')
 
-const routes = (app) => {
-    app.get('/tasks', TaskController.getAllTasks);
-    app.get('/task/:id', TaskController.getTask)
-    app.post('/task', TaskController.createNewTask);
-    app.patch('/task/:id', TaskController.changeTask);
-    app.delete('/task/:id', TaskController.deleteTask);
-
-    app.get('/teapot', (req, res) => {
-        res.status(418).send("Status 418 - I'm a teapot");
-    })
-}
+routes.use(['/task', '/tasks'], (req, res, next) => {
+    if (!req.local) {
+        return res.status(401).send('User not logged in');
+    }
+    next();
+})
 
 
-module.exports = { routes }
+routes.get('/tasks', TaskController.getTasks);
+routes.get('/task/:id', TaskController.get)
+routes.post('/task', TaskController.create);
+routes.patch('/task/:id', TaskController.update);
+routes.delete('/task/:id', TaskController.delete);
+
+routes.get('/teapot', (req, res) => {
+    res.status(418).send("Status 418 - I'm a teapot");
+})
+
+
+
+module.exports = routes;

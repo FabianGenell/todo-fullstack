@@ -1,0 +1,21 @@
+.badge{
+    --size: 24px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 9px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-entry .badge:not(.task-completed) {
+    border: 3px solid var(--highlight-color);
+}
+
+
+.task-entry .badge.task-completed, 
+.create-task .badge  {
+    background-color: var(--highlight-color);
+}

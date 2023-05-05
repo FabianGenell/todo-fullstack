@@ -1,18 +1,29 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
 
-const taskRoutes = require('./routes/taskRoutes')
+const authMiddleware = require('./middleware/authMiddleware')
+const taskRoutes = require('./routes/taskRoutes');
+const authRoutes = require('./routes/authRoutes');
+
 
 const app = express();
 const port = 3000
 
-app.use(morgan('tiny'));
-app.use(express.json())
-app.use(cors());
+//middleware
+app.use(morgan(':method :url :status :res[content-length] - :date[clf] (:response-time ms)'));
+app.use(express.json());
+app.use(cors({
+    origin: 'http://127.0.0.1:5173',
+    credentials: true
+}));
+app.use(cookieParser());
+app.use(authMiddleware);
 
 //Routes
-taskRoutes.routes(app);
+app.use(taskRoutes)
+app.use(authRoutes)
 
 //Starting the server
 app.listen(port, () => {

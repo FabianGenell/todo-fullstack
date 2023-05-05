@@ -22,11 +22,12 @@ This is a simple ToDo app built with React on the frontend and Node.js with Expr
    DB_NAME=
    HOST=
    PORT=
+   JWT_SECRET=
    ```
-4. Start the server: `npm run dev`
+4. Start the server: `npm run dev` - same command applies both for server and client.
 
 ## Usage
-
+- Login or create and account
 - Add a new task by typing into the input field and pressing enter or clicking the plus button
 - Complete a task by ticking the box next to it
 - Edit a task by clicking on it or the pen icon and making changes in the input field
